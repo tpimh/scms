@@ -17,6 +17,8 @@ You also will need the following:
  - JSTL and JSTL API
  - Appropriate driver for your database
  - UrlRewriteFilter (4.0.4)
+ - Apache Commons Lang3
+ - Joda-Time
 
 Initial setup
 ----
