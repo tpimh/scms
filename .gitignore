@@ -1,6 +1,9 @@
+target
+src/main/resources
+src/main/webapp/js/html5shiv.js
+src/main/webapp/css/bootstrap.min.css
+src/main/webapp/css/bootstrap-responsive.min.css
 *.class
-
-# Package Files #
 *.jar
 *.war
 *.ear
