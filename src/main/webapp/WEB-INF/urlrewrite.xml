@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+    
+    <rule match-type="wildcard">
+        <name>Global variables</name>
+        <from>/**</from>
+        <set name="sitename" type="session">Test Site</set>
+    </rule>
+    
+    <rule match-type="wildcard">
+        <name>Redirect to content</name>
+        <from>/</from>
+        <to type="redirect">%{context-path}/people</to>
+    </rule>
+    
+    <rule>
+        <name>Servlet's cleanup</name>
+        <from>^/people/([0-9]+)</from>
+        <to>/people?id=$1</to>
+    </rule>
+    
+    <rule>
+        <name>Servlet's 404 fixer</name>
+        <from>^/people/$</from>
+        <to type="redirect">%{context-path}/people</to>
+    </rule>
+    
+    <!-- Rules for sorting and filtering list -->
+    
+    <rule>
+        <name>Random sort</name>
+        <from>^/people/random$</from>
+        <set name="sort" type="session">random</set>
+        <to type="redirect">%{context-path}/people</to>
+    </rule>
+    
+    <rule>
+        <name>Sort by firstname</name>
+        <from>^/people/firstname$</from>
+        <set name="sort" type="session">fname</set>
+        <to type="redirect">%{context-path}/people</to>
+    </rule>
+    
+    <rule>
+        <name>Sort by lastname</name>
+        <from>^/people/lastname$</from>
+        <set name="sort" type="session">lname</set>
+        <to type="redirect">%{context-path}/people</to>
+    </rule>
+    
+</urlrewrite>
